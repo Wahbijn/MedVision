@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroVision AI - Diagnostic Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        .status {
+            padding: 10px 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .success {
+            background: rgba(16, 185, 129, 0.3);
+        }
+
+        .error {
+            background: rgba(239, 68, 68, 0.3);
+        }
+
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔍 NeuroVision AI - Diagnostic Page</h1>
+        <p>If you see this page, the Vite server is working correctly!</p>
+
+        <h2>✅ Server Status</h2>
+        <div class="status success">
+            <strong>Server:</strong> Running correctly on port <code id="port">3002</code>
+        </div>
+
+        <h2>🐛 Troubleshooting White Page</h2>
+        <div class="status">
+            <p><strong>Possible causes:</strong></p>
+            <ul>
+                <li>Browser console errors (Press <code>F12</code> to check)</li>
+                <li>JavaScript not loading</li>
+                <li>Component render errors</li>
+                <li>Missing dependencies</li>
+            </ul>
+        </div>
+
+        <h2>🔧 Steps to Fix</h2>
+        <ol>
+            <li><strong>Open Browser Console:</strong> Press <code>F12</code> → Console tab</li>
+            <li><strong>Check for red errors</strong> in the console</li>
+            <li><strong>Try main application:</strong>
+                <a href="/" style="color: #fff; text-decoration: underline;">Click here to load NeuroVision AI</a>
+            </li>
+        </ol>
+
+        <h2>📋 Quick Actions</h2>
+        <div class="status">
+            <button onclick="window.location.href='/'"
+                style="padding: 10px 20px; border: none; background: #fff; color: #667eea; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px;">
+                🚀 Try Loading Main App
+            </button>
+        </div>
+
+        <h2>💡 Common Solutions</h2>
+        <div class="status">
+            <p><strong>1. Hard Refresh:</strong></p>
+            <code>Ctrl + Shift + R</code> (Windows) or <code>Cmd + Shift + R</code> (Mac)
+
+            <p style="margin-top: 15px;"><strong>2. Clear Cache:</strong></p>
+            <code>Ctrl + Shift + Delete</code> → Clear cached images and files
+
+            <p style="margin-top: 15px;"><strong>3. Different Browser:</strong></p>
+            Try Chrome, Edge, or Firefox (latest version)
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background: rgba(0, 0, 0, 0.2); border-radius: 10px;">
+            <strong>Server Info:</strong><br>
+            Current URL: <code id="url"></code><br>
+            Port: <code>3002</code><br>
+            Status: <span style="color: #10b981;">● Online</span>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('url').textContent = window.location.href;
+        document.getElementById('port').textContent = window.location.port || '3002';
+
+        // Test if main app loads
+        fetch('/')
+            .then(response => response.text())
+            .then(html => {
+                console.log('✅ Main app HTML loaded successfully');
+                console.log('HTML length:', html.length, 'characters');
+            })
+            .catch(error => {
+                console.error('❌ Failed to load main app:', error);
+            });
+    </script>
+</body>
+
+</html>
